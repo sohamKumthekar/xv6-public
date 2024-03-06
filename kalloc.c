@@ -70,8 +70,20 @@ kfree(char *v)
   if(kmem.use_lock)
     acquire(&kmem.lock);
   r = (struct run*)v;
-  r->next = kmem.freelist;
-  kmem.freelist = r;
+ 
+  if(kmem.freelist == NULL){
+	kmem.freelist = r;
+	r->next = NULL;
+  }else if(kmem.freelist->next == NULL){
+	r->next = kmem.freelist;
+	kmem.freelist->next = r;
+  }
+  else{
+	struct run* temp = kmem.freelist->next;
+	kmem.freelist->next = r;
+	r->next = temp;
+  }
+
   if(kmem.use_lock)
     release(&kmem.lock);
 }
@@ -87,8 +99,10 @@ kalloc(void)
   if(kmem.use_lock)
     acquire(&kmem.lock);
   r = kmem.freelist;
-  if(r)
-    kmem.freelist = r->next;
+  if(r){
+    kmem.freelist->next = r->next;
+    r->next = NULL;
+  }
   if(kmem.use_lock)
     release(&kmem.lock);
   return (char*)r;
