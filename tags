@@ -1,0 +1,1557 @@
+.code16	bootasm.S	/^.code16                       # Assemble for 16-bi/
+.code16	entryother.S	/^.code16           $/
+.code32	bootasm.S	/^.code32  # Tell assembler to generate 32-bit code /
+.code32	entryother.S	/^.code32  # Tell assembler to generate 32-bit code /
+.comm	entry.S	/^.comm stack, KSTACKSIZE$/
+.globl	bootasm.S	/^.globl start$/
+.globl	entryother.S	/^.globl start$/
+.globl	entry.S	/^.globl multiboot_header$/
+.globl	entry.S	/^.globl _start$/
+.globl	entry.S	/^.globl entry$/
+.globl	initcode.S	/^.globl start$/
+.globl	swtch.S	/^.globl swtch$/
+.globl	trapasm.S	/^.globl alltraps$/
+.globl	trapasm.S	/^.globl trapret$/
+.globl	vectors.S	/^.globl alltraps$/
+.globl	vectors.S	/^.globl vector0$/
+.globl	vectors.S	/^.globl vector1$/
+.globl	vectors.S	/^.globl vector2$/
+.globl	vectors.S	/^.globl vector3$/
+.globl	vectors.S	/^.globl vector4$/
+.globl	vectors.S	/^.globl vector5$/
+.globl	vectors.S	/^.globl vector6$/
+.globl	vectors.S	/^.globl vector7$/
+.globl	vectors.S	/^.globl vector8$/
+.globl	vectors.S	/^.globl vector9$/
+.globl	vectors.S	/^.globl vector10$/
+.globl	vectors.S	/^.globl vector11$/
+.globl	vectors.S	/^.globl vector12$/
+.globl	vectors.S	/^.globl vector13$/
+.globl	vectors.S	/^.globl vector14$/
+.globl	vectors.S	/^.globl vector15$/
+.globl	vectors.S	/^.globl vector16$/
+.globl	vectors.S	/^.globl vector17$/
+.globl	vectors.S	/^.globl vector18$/
+.globl	vectors.S	/^.globl vector19$/
+.globl	vectors.S	/^.globl vector20$/
+.globl	vectors.S	/^.globl vector21$/
+.globl	vectors.S	/^.globl vector22$/
+.globl	vectors.S	/^.globl vector23$/
+.globl	vectors.S	/^.globl vector24$/
+.globl	vectors.S	/^.globl vector25$/
+.globl	vectors.S	/^.globl vector26$/
+.globl	vectors.S	/^.globl vector27$/
+.globl	vectors.S	/^.globl vector28$/
+.globl	vectors.S	/^.globl vector29$/
+.globl	vectors.S	/^.globl vector30$/
+.globl	vectors.S	/^.globl vector31$/
+.globl	vectors.S	/^.globl vector32$/
+.globl	vectors.S	/^.globl vector33$/
+.globl	vectors.S	/^.globl vector34$/
+.globl	vectors.S	/^.globl vector35$/
+.globl	vectors.S	/^.globl vector36$/
+.globl	vectors.S	/^.globl vector37$/
+.globl	vectors.S	/^.globl vector38$/
+.globl	vectors.S	/^.globl vector39$/
+.globl	vectors.S	/^.globl vector40$/
+.globl	vectors.S	/^.globl vector41$/
+.globl	vectors.S	/^.globl vector42$/
+.globl	vectors.S	/^.globl vector43$/
+.globl	vectors.S	/^.globl vector44$/
+.globl	vectors.S	/^.globl vector45$/
+.globl	vectors.S	/^.globl vector46$/
+.globl	vectors.S	/^.globl vector47$/
+.globl	vectors.S	/^.globl vector48$/
+.globl	vectors.S	/^.globl vector49$/
+.globl	vectors.S	/^.globl vector50$/
+.globl	vectors.S	/^.globl vector51$/
+.globl	vectors.S	/^.globl vector52$/
+.globl	vectors.S	/^.globl vector53$/
+.globl	vectors.S	/^.globl vector54$/
+.globl	vectors.S	/^.globl vector55$/
+.globl	vectors.S	/^.globl vector56$/
+.globl	vectors.S	/^.globl vector57$/
+.globl	vectors.S	/^.globl vector58$/
+.globl	vectors.S	/^.globl vector59$/
+.globl	vectors.S	/^.globl vector60$/
+.globl	vectors.S	/^.globl vector61$/
+.globl	vectors.S	/^.globl vector62$/
+.globl	vectors.S	/^.globl vector63$/
+.globl	vectors.S	/^.globl vector64$/
+.globl	vectors.S	/^.globl vector65$/
+.globl	vectors.S	/^.globl vector66$/
+.globl	vectors.S	/^.globl vector67$/
+.globl	vectors.S	/^.globl vector68$/
+.globl	vectors.S	/^.globl vector69$/
+.globl	vectors.S	/^.globl vector70$/
+.globl	vectors.S	/^.globl vector71$/
+.globl	vectors.S	/^.globl vector72$/
+.globl	vectors.S	/^.globl vector73$/
+.globl	vectors.S	/^.globl vector74$/
+.globl	vectors.S	/^.globl vector75$/
+.globl	vectors.S	/^.globl vector76$/
+.globl	vectors.S	/^.globl vector77$/
+.globl	vectors.S	/^.globl vector78$/
+.globl	vectors.S	/^.globl vector79$/
+.globl	vectors.S	/^.globl vector80$/
+.globl	vectors.S	/^.globl vector81$/
+.globl	vectors.S	/^.globl vector82$/
+.globl	vectors.S	/^.globl vector83$/
+.globl	vectors.S	/^.globl vector84$/
+.globl	vectors.S	/^.globl vector85$/
+.globl	vectors.S	/^.globl vector86$/
+.globl	vectors.S	/^.globl vector87$/
+.globl	vectors.S	/^.globl vector88$/
+.globl	vectors.S	/^.globl vector89$/
+.globl	vectors.S	/^.globl vector90$/
+.globl	vectors.S	/^.globl vector91$/
+.globl	vectors.S	/^.globl vector92$/
+.globl	vectors.S	/^.globl vector93$/
+.globl	vectors.S	/^.globl vector94$/
+.globl	vectors.S	/^.globl vector95$/
+.globl	vectors.S	/^.globl vector96$/
+.globl	vectors.S	/^.globl vector97$/
+.globl	vectors.S	/^.globl vector98$/
+.globl	vectors.S	/^.globl vector99$/
+.globl	vectors.S	/^.globl vector100$/
+.globl	vectors.S	/^.globl vector101$/
+.globl	vectors.S	/^.globl vector102$/
+.globl	vectors.S	/^.globl vector103$/
+.globl	vectors.S	/^.globl vector104$/
+.globl	vectors.S	/^.globl vector105$/
+.globl	vectors.S	/^.globl vector106$/
+.globl	vectors.S	/^.globl vector107$/
+.globl	vectors.S	/^.globl vector108$/
+.globl	vectors.S	/^.globl vector109$/
+.globl	vectors.S	/^.globl vector110$/
+.globl	vectors.S	/^.globl vector111$/
+.globl	vectors.S	/^.globl vector112$/
+.globl	vectors.S	/^.globl vector113$/
+.globl	vectors.S	/^.globl vector114$/
+.globl	vectors.S	/^.globl vector115$/
+.globl	vectors.S	/^.globl vector116$/
+.globl	vectors.S	/^.globl vector117$/
+.globl	vectors.S	/^.globl vector118$/
+.globl	vectors.S	/^.globl vector119$/
+.globl	vectors.S	/^.globl vector120$/
+.globl	vectors.S	/^.globl vector121$/
+.globl	vectors.S	/^.globl vector122$/
+.globl	vectors.S	/^.globl vector123$/
+.globl	vectors.S	/^.globl vector124$/
+.globl	vectors.S	/^.globl vector125$/
+.globl	vectors.S	/^.globl vector126$/
+.globl	vectors.S	/^.globl vector127$/
+.globl	vectors.S	/^.globl vector128$/
+.globl	vectors.S	/^.globl vector129$/
+.globl	vectors.S	/^.globl vector130$/
+.globl	vectors.S	/^.globl vector131$/
+.globl	vectors.S	/^.globl vector132$/
+.globl	vectors.S	/^.globl vector133$/
+.globl	vectors.S	/^.globl vector134$/
+.globl	vectors.S	/^.globl vector135$/
+.globl	vectors.S	/^.globl vector136$/
+.globl	vectors.S	/^.globl vector137$/
+.globl	vectors.S	/^.globl vector138$/
+.globl	vectors.S	/^.globl vector139$/
+.globl	vectors.S	/^.globl vector140$/
+.globl	vectors.S	/^.globl vector141$/
+.globl	vectors.S	/^.globl vector142$/
+.globl	vectors.S	/^.globl vector143$/
+.globl	vectors.S	/^.globl vector144$/
+.globl	vectors.S	/^.globl vector145$/
+.globl	vectors.S	/^.globl vector146$/
+.globl	vectors.S	/^.globl vector147$/
+.globl	vectors.S	/^.globl vector148$/
+.globl	vectors.S	/^.globl vector149$/
+.globl	vectors.S	/^.globl vector150$/
+.globl	vectors.S	/^.globl vector151$/
+.globl	vectors.S	/^.globl vector152$/
+.globl	vectors.S	/^.globl vector153$/
+.globl	vectors.S	/^.globl vector154$/
+.globl	vectors.S	/^.globl vector155$/
+.globl	vectors.S	/^.globl vector156$/
+.globl	vectors.S	/^.globl vector157$/
+.globl	vectors.S	/^.globl vector158$/
+.globl	vectors.S	/^.globl vector159$/
+.globl	vectors.S	/^.globl vector160$/
+.globl	vectors.S	/^.globl vector161$/
+.globl	vectors.S	/^.globl vector162$/
+.globl	vectors.S	/^.globl vector163$/
+.globl	vectors.S	/^.globl vector164$/
+.globl	vectors.S	/^.globl vector165$/
+.globl	vectors.S	/^.globl vector166$/
+.globl	vectors.S	/^.globl vector167$/
+.globl	vectors.S	/^.globl vector168$/
+.globl	vectors.S	/^.globl vector169$/
+.globl	vectors.S	/^.globl vector170$/
+.globl	vectors.S	/^.globl vector171$/
+.globl	vectors.S	/^.globl vector172$/
+.globl	vectors.S	/^.globl vector173$/
+.globl	vectors.S	/^.globl vector174$/
+.globl	vectors.S	/^.globl vector175$/
+.globl	vectors.S	/^.globl vector176$/
+.globl	vectors.S	/^.globl vector177$/
+.globl	vectors.S	/^.globl vector178$/
+.globl	vectors.S	/^.globl vector179$/
+.globl	vectors.S	/^.globl vector180$/
+.globl	vectors.S	/^.globl vector181$/
+.globl	vectors.S	/^.globl vector182$/
+.globl	vectors.S	/^.globl vector183$/
+.globl	vectors.S	/^.globl vector184$/
+.globl	vectors.S	/^.globl vector185$/
+.globl	vectors.S	/^.globl vector186$/
+.globl	vectors.S	/^.globl vector187$/
+.globl	vectors.S	/^.globl vector188$/
+.globl	vectors.S	/^.globl vector189$/
+.globl	vectors.S	/^.globl vector190$/
+.globl	vectors.S	/^.globl vector191$/
+.globl	vectors.S	/^.globl vector192$/
+.globl	vectors.S	/^.globl vector193$/
+.globl	vectors.S	/^.globl vector194$/
+.globl	vectors.S	/^.globl vector195$/
+.globl	vectors.S	/^.globl vector196$/
+.globl	vectors.S	/^.globl vector197$/
+.globl	vectors.S	/^.globl vector198$/
+.globl	vectors.S	/^.globl vector199$/
+.globl	vectors.S	/^.globl vector200$/
+.globl	vectors.S	/^.globl vector201$/
+.globl	vectors.S	/^.globl vector202$/
+.globl	vectors.S	/^.globl vector203$/
+.globl	vectors.S	/^.globl vector204$/
+.globl	vectors.S	/^.globl vector205$/
+.globl	vectors.S	/^.globl vector206$/
+.globl	vectors.S	/^.globl vector207$/
+.globl	vectors.S	/^.globl vector208$/
+.globl	vectors.S	/^.globl vector209$/
+.globl	vectors.S	/^.globl vector210$/
+.globl	vectors.S	/^.globl vector211$/
+.globl	vectors.S	/^.globl vector212$/
+.globl	vectors.S	/^.globl vector213$/
+.globl	vectors.S	/^.globl vector214$/
+.globl	vectors.S	/^.globl vector215$/
+.globl	vectors.S	/^.globl vector216$/
+.globl	vectors.S	/^.globl vector217$/
+.globl	vectors.S	/^.globl vector218$/
+.globl	vectors.S	/^.globl vector219$/
+.globl	vectors.S	/^.globl vector220$/
+.globl	vectors.S	/^.globl vector221$/
+.globl	vectors.S	/^.globl vector222$/
+.globl	vectors.S	/^.globl vector223$/
+.globl	vectors.S	/^.globl vector224$/
+.globl	vectors.S	/^.globl vector225$/
+.globl	vectors.S	/^.globl vector226$/
+.globl	vectors.S	/^.globl vector227$/
+.globl	vectors.S	/^.globl vector228$/
+.globl	vectors.S	/^.globl vector229$/
+.globl	vectors.S	/^.globl vector230$/
+.globl	vectors.S	/^.globl vector231$/
+.globl	vectors.S	/^.globl vector232$/
+.globl	vectors.S	/^.globl vector233$/
+.globl	vectors.S	/^.globl vector234$/
+.globl	vectors.S	/^.globl vector235$/
+.globl	vectors.S	/^.globl vector236$/
+.globl	vectors.S	/^.globl vector237$/
+.globl	vectors.S	/^.globl vector238$/
+.globl	vectors.S	/^.globl vector239$/
+.globl	vectors.S	/^.globl vector240$/
+.globl	vectors.S	/^.globl vector241$/
+.globl	vectors.S	/^.globl vector242$/
+.globl	vectors.S	/^.globl vector243$/
+.globl	vectors.S	/^.globl vector244$/
+.globl	vectors.S	/^.globl vector245$/
+.globl	vectors.S	/^.globl vector246$/
+.globl	vectors.S	/^.globl vector247$/
+.globl	vectors.S	/^.globl vector248$/
+.globl	vectors.S	/^.globl vector249$/
+.globl	vectors.S	/^.globl vector250$/
+.globl	vectors.S	/^.globl vector251$/
+.globl	vectors.S	/^.globl vector252$/
+.globl	vectors.S	/^.globl vector253$/
+.globl	vectors.S	/^.globl vector254$/
+.globl	vectors.S	/^.globl vector255$/
+.globl	vectors.S	/^.globl vectors$/
+.p2align	bootasm.S	/^.p2align 2                                # force /
+.p2align	entryother.S	/^.p2align 2$/
+.p2align	entry.S	/^.p2align 2$/
+.p2align	initcode.S	/^.p2align 2$/
+ALT	kbd.h	11
+ASSERT	lapic.c	25
+Align	umalloc.c	9
+BACK	sh.c	12
+BACKSPACE	console.c	127
+BBLOCK	fs.h	/^#define BBLOCK(b, sb) (b\/BPB + sb.bmapstart)$/
+BCAST	lapic.c	28
+BIG	usertests.c	1452
+BPB	fs.h	45
+BSIZE	fs.h	6
+BUSY	lapic.c	29
+B_DIRTY	buf.h	13
+B_VALID	buf.h	12
+C	console.c	/^#define C(x)  ((x)-'@')  \/\/ Control-x$/
+C	kbd.h	/^#define C(x) (x - '@')$/
+CAPSLOCK	kbd.h	13
+CMOS_PORT	lapic.c	123
+CMOS_RETURN	lapic.c	124
+CMOS_STATA	lapic.c	163
+CMOS_STATB	lapic.c	164
+CMOS_UIP	lapic.c	165
+COM1	uart.c	15
+CONSOLE	file.h	37
+CONV	lapic.c	/^#define    CONV(x)     (t1.x = ((t1.x >> 4) * 10) /
+CONV	lapic.c	224
+CR0_PE	mmu.h	8
+CR0_PG	mmu.h	10
+CR0_WP	mmu.h	9
+CR4_PSE	mmu.h	12
+CRTPORT	console.c	128
+CTL	kbd.h	10
+DAY	lapic.c	170
+DEASSERT	lapic.c	26
+DELIVS	lapic.c	24
+DEVSPACE	memlayout.h	5
+DIRSIZ	fs.h	51
+DPL_USER	mmu.h	53
+E0ESC	kbd.h	17
+ELF_MAGIC	elf.h	3
+ELF_PROG_FLAG_EXEC	elf.h	40
+ELF_PROG_FLAG_READ	elf.h	42
+ELF_PROG_FLAG_WRITE	elf.h	41
+ELF_PROG_LOAD	elf.h	37
+EMBRYO	proc.h	35
+ENABLE	lapic.c	19
+EOI	lapic.c	17
+ERROR	lapic.c	38
+ESR	lapic.c	20
+EXEC	sh.c	8
+EXTMEM	memlayout.h	3
+FD_INODE	file.h	2
+FD_NONE	file.h	2
+FD_PIPE	file.h	2
+FIXED	lapic.c	30
+FL_IF	mmu.h	5
+FSSIZE	param.h	13
+HOURS	lapic.c	169
+Header	umalloc.c	19
+IBLOCK	fs.h	/^#define IBLOCK(i, sb)     ((i) \/ IPB + sb.inodesta/
+ICRHI	lapic.c	31
+ICRLO	lapic.c	21
+ID	lapic.c	14
+IDE_BSY	ide.c	17
+IDE_CMD_RDMUL	ide.c	24
+IDE_CMD_READ	ide.c	22
+IDE_CMD_WRITE	ide.c	23
+IDE_CMD_WRMUL	ide.c	25
+IDE_DF	ide.c	19
+IDE_DRDY	ide.c	18
+IDE_ERR	ide.c	20
+INIT	lapic.c	22
+INPUT_BUF	console.c	181
+INT_ACTIVELOW	ioapic.c	22
+INT_DISABLED	ioapic.c	20
+INT_LEVEL	ioapic.c	21
+INT_LOGICAL	ioapic.c	23
+IOAPIC	ioapic.c	9
+IO_PIC1	picirq.c	6
+IO_PIC2	picirq.c	7
+IPB	fs.h	39
+IRQ_COM1	traps.h	34
+IRQ_ERROR	traps.h	36
+IRQ_IDE	traps.h	35
+IRQ_KBD	traps.h	33
+IRQ_SPURIOUS	traps.h	37
+IRQ_TIMER	traps.h	32
+KBDATAP	kbd.h	5
+KBSTATP	kbd.h	3
+KBS_DIB	kbd.h	4
+KERNBASE	memlayout.h	8
+KERNLINK	memlayout.h	9
+KEY_DEL	kbd.h	29
+KEY_DN	kbd.h	23
+KEY_END	kbd.h	21
+KEY_HOME	kbd.h	20
+KEY_INS	kbd.h	28
+KEY_LF	kbd.h	24
+KEY_PGDN	kbd.h	27
+KEY_PGUP	kbd.h	26
+KEY_RT	kbd.h	25
+KEY_UP	kbd.h	22
+KSTACKSIZE	param.h	2
+LEVEL	lapic.c	27
+LINT0	lapic.c	36
+LINT1	lapic.c	37
+LIST	sh.c	11
+LOGSIZE	param.h	11
+MASKED	lapic.c	39
+MAXARG	param.h	9
+MAXARGS	sh.c	14
+MAXFILE	fs.h	26
+MAXOPBLOCKS	param.h	10
+MINS	lapic.c	168
+MONTH	lapic.c	171
+MPBOOT	mp.h	34
+MPBUS	mp.h	50
+MPIOAPIC	mp.h	51
+MPIOINTR	mp.h	52
+MPLINTR	mp.h	53
+MPPROC	mp.h	49
+Mcat	cat.c	/^main(int argc, char *argv[])$/
+Mecho	echo.c	/^main(int argc, char *argv[])$/
+Mfoo	foo.c	/^int main(int argc, char *argv[]){$/
+Mforktest	forktest.c	/^main(void)$/
+Mgrep	grep.c	/^main(int argc, char *argv[])$/
+Minit	init.c	/^main(void)$/
+Mkill	kill.c	/^main(int argc, char **argv)$/
+Mln	ln.c	/^main(int argc, char *argv[])$/
+Mls	ls.c	/^main(int argc, char *argv[])$/
+Mmain	main.c	/^main(void)$/
+Mmkdir	mkdir.c	/^main(int argc, char *argv[])$/
+Mmkfs	mkfs.c	/^main(int argc, char *argv[])$/
+Mnice	nice.c	/^int main(int argc, char *argv[]){$/
+Mps	ps.c	/^int main(void){$/
+Mrm	rm.c	/^main(int argc, char *argv[])$/
+Msh	sh.c	/^main(void)$/
+Mstressfs	stressfs.c	/^main(int argc, char *argv[])$/
+Musertests	usertests.c	/^main(int argc, char *argv[])$/
+Mwc	wc.c	/^main(int argc, char *argv[])$/
+Mzombie	zombie.c	/^main(void)$/
+N	forktest.c	8
+N	usertests.c	586
+NBUF	param.h	12
+NCPU	param.h	3
+NDEV	param.h	7
+NDIRECT	fs.h	24
+NELEM	defs.h	/^#define NELEM(x) (sizeof(x)\/sizeof((x)[0]))$/
+NFILE	param.h	5
+NINDIRECT	fs.h	25
+NINODE	param.h	6
+NINODES	mkfs.c	18
+NO	kbd.h	7
+NOFILE	param.h	4
+NPDENTRIES	mmu.h	83
+NPROC	param.h	1
+NPTENTRIES	mmu.h	84
+NSEGS	mmu.h	22
+NULL	proc.c	10
+NUMLOCK	kbd.h	14
+O_CREATE	fcntl.h	4
+O_RDONLY	fcntl.h	1
+O_RDWR	fcntl.h	3
+O_WRONLY	fcntl.h	2
+P2V	memlayout.h	/^#define P2V(a) ((void *)(((char *) (a)) + KERNBASE/
+P2V_WO	memlayout.h	/^#define P2V_WO(x) ((x) + KERNBASE)    \/\/ same as P/
+PCINT	lapic.c	35
+PDX	mmu.h	/^#define PDX(va)         (((uint)(va) >> PDXSHIFT) /
+PDXSHIFT	mmu.h	88
+PERIODIC	lapic.c	34
+PGADDR	mmu.h	/^#define PGADDR(d, t, o) ((uint)((d) << PDXSHIFT | /
+PGROUNDDOWN	mmu.h	/^#define PGROUNDDOWN(a) (((a)) & ~(PGSIZE-1))$/
+PGROUNDUP	mmu.h	/^#define PGROUNDUP(sz)  (((sz)+PGSIZE-1) & ~(PGSIZE/
+PGSIZE	mmu.h	85
+PHYSTOP	memlayout.h	4
+PIPE	sh.c	10
+PIPESIZE	pipe.c	11
+PTE_ADDR	mmu.h	/^#define PTE_ADDR(pte)   ((uint)(pte) & ~0xFFF)$/
+PTE_FLAGS	mmu.h	/^#define PTE_FLAGS(pte)  ((uint)(pte) &  0xFFF)$/
+PTE_P	mmu.h	94
+PTE_PS	mmu.h	97
+PTE_U	mmu.h	96
+PTE_W	mmu.h	95
+PTX	mmu.h	/^#define PTX(va)         (((uint)(va) >> PTXSHIFT) /
+PTXSHIFT	mmu.h	87
+REDIR	sh.c	9
+REG_ID	ioapic.c	11
+REG_TABLE	ioapic.c	13
+REG_VER	ioapic.c	12
+ROOTDEV	param.h	8
+ROOTINO	fs.h	5
+RTC_ADDR	usertests.c	1701
+RTC_DATA	usertests.c	1702
+RUNNABLE	proc.h	35
+RUNNING	proc.h	35
+SCROLLLOCK	kbd.h	15
+SECS	lapic.c	167
+SECTOR_SIZE	ide.c	16
+SECTSIZE	bootmain.c	13
+SEEK_CUR	fcntl.h	7
+SEEK_END	fcntl.h	8
+SEEK_SET	fcntl.h	6
+SEG	mmu.h	/^#define SEG(type, base, lim, dpl) (struct segdesc)/
+SEG16	mmu.h	/^#define SEG16(type, base, lim, dpl) (struct segdes/
+SEG_ASM	asm.h	/^#define SEG_ASM(type,base,lim)                    /
+SEG_KCODE	mmu.h	15
+SEG_KDATA	mmu.h	16
+SEG_NULLASM	asm.h	5
+SEG_TSS	mmu.h	19
+SEG_UCODE	mmu.h	17
+SEG_UDATA	mmu.h	18
+SETGATE	mmu.h	/^#define SETGATE(gate, istrap, sel, off, d)        /
+SHIFT	kbd.h	9
+SLEEPING	proc.h	35
+STARTUP	lapic.c	23
+STA_R	asm.h	18
+STA_R	mmu.h	58
+STA_W	asm.h	17
+STA_W	mmu.h	57
+STA_X	asm.h	16
+STA_X	mmu.h	56
+STS_IG32	mmu.h	62
+STS_T32A	mmu.h	61
+STS_TG32	mmu.h	63
+SVR	lapic.c	18
+SYS_chdir	syscall.h	10
+SYS_chpr	syscall.h	24
+SYS_close	syscall.h	22
+SYS_cps	syscall.h	25
+SYS_dup	syscall.h	11
+SYS_exec	syscall.h	8
+SYS_exit	syscall.h	3
+SYS_fork	syscall.h	2
+SYS_fstat	syscall.h	9
+SYS_getpid	syscall.h	12
+SYS_kill	syscall.h	7
+SYS_link	syscall.h	20
+SYS_lseek	syscall.h	23
+SYS_mkdir	syscall.h	21
+SYS_mknod	syscall.h	18
+SYS_open	syscall.h	16
+SYS_pipe	syscall.h	5
+SYS_read	syscall.h	6
+SYS_sbrk	syscall.h	13
+SYS_sleep	syscall.h	14
+SYS_unlink	syscall.h	19
+SYS_uptime	syscall.h	15
+SYS_wait	syscall.h	4
+SYS_write	syscall.h	17
+TCCR	lapic.c	41
+TDCR	lapic.c	42
+TICR	lapic.c	40
+TIMER	lapic.c	32
+TPR	lapic.c	16
+T_ALIGN	traps.h	21
+T_BOUND	traps.h	9
+T_BRKPT	traps.h	7
+T_DBLFLT	traps.h	12
+T_DEBUG	traps.h	5
+T_DEFAULT	traps.h	28
+T_DEV	stat.h	3
+T_DEVICE	traps.h	11
+T_DIR	stat.h	1
+T_DIVIDE	traps.h	4
+T_FILE	stat.h	2
+T_FPERR	traps.h	20
+T_GPFLT	traps.h	17
+T_ILLOP	traps.h	10
+T_IRQ0	traps.h	30
+T_MCHK	traps.h	22
+T_NMI	traps.h	6
+T_OFLOW	traps.h	8
+T_PGFLT	traps.h	18
+T_SEGNP	traps.h	15
+T_SIMDERR	traps.h	23
+T_STACK	traps.h	16
+T_SYSCALL	traps.h	27
+T_TSS	traps.h	14
+UNUSED	proc.h	35
+V2P	memlayout.h	/^#define V2P(a) (((uint) (a)) - KERNBASE)$/
+V2P_WO	memlayout.h	/^#define V2P_WO(x) ((x) - KERNBASE)    \/\/ same as V/
+VER	lapic.c	15
+X1	lapic.c	33
+YEAR	lapic.c	172
+ZOMBIE	proc.h	35
+_start	entry.S	/^_start = V2P_WO(entry)$/
+acquire	spinlock.c	/^acquire(struct spinlock *lk)$/
+acquiresleep	sleeplock.c	/^acquiresleep(struct sleeplock *lk)$/
+addr	mp.h	45
+addrs	file.h	25
+addrs	fs.h	35
+align	elf.h	33
+allocproc	proc.c	/^allocproc(void)$/
+allocuvm	vm.c	/^allocuvm(pde_t *pgdir, uint oldsz, uint newsz)$/
+alltraps	trapasm.S	/^alltraps:$/
+apicid	mp.h	31
+apicid	proc.h	3
+apicno	mp.h	42
+argfd	sysfile.c	/^argfd(int n, int *pfd, struct file **pf)$/
+argint	syscall.c	/^argint(int n, int *ip)$/
+argptest	usertests.c	/^void argptest()$/
+argptr	syscall.c	/^argptr(int n, char **pp, int size)$/
+args	mmu.h	151
+argstr	syscall.c	/^argstr(int n, char **pp)$/
+argv	init.c	8
+argv	initcode.S	/^argv:$/
+argv	sh.c	22
+atoi	ulib.c	/^atoi(const char *s)$/
+avl	mmu.h	35
+backcmd	sh.c	47
+backcmd	sh.c	/^backcmd(struct cmd *subcmd)$/
+balloc	fs.c	/^balloc(uint dev)$/
+balloc	mkfs.c	/^balloc(int used)$/
+base	umalloc.c	21
+base_15_0	mmu.h	28
+base_23_16	mmu.h	29
+base_31_24	mmu.h	39
+bcache	bio.c	36
+begin_op	log.c	/^begin_op(void)$/
+bfree	fs.c	/^bfree(int dev, uint b)$/
+bget	bio.c	/^bget(uint dev, uint blockno)$/
+bigargtest	usertests.c	/^bigargtest(void)$/
+bigdir	usertests.c	/^bigdir(void)$/
+bigfile	usertests.c	/^bigfile(void)$/
+bigwrite	usertests.c	/^bigwrite(void)$/
+binit	bio.c	/^binit(void)$/
+block	log.c	36
+blockno	buf.h	4
+bmap	fs.c	/^bmap(struct inode *ip, uint bn)$/
+bmapstart	fs.h	21
+bootmain	bootmain.c	/^bootmain(void)$/
+bread	bio.c	/^bread(uint dev, uint blockno)$/
+brelse	bio.c	/^brelse(struct buf *b)$/
+bsstest	usertests.c	/^bsstest(void)$/
+buf	bio.c	31
+buf	buf.h	1
+buf	cat.c	5
+buf	console.c	183
+buf	grep.c	7
+buf	usertests.c	11
+buf	wc.c	5
+bwrite	bio.c	/^bwrite(struct buf *b)$/
+bzero	fs.c	/^bzero(int dev, int bno)$/
+cat	cat.c	/^cat(int fd)$/
+cgaputc	console.c	/^cgaputc(int c)$/
+chan	proc.h	47
+checksum	mp.h	8
+checksum	mp.h	18
+chpr	proc.c	/^int chpr(int pid, int priority){$/
+clearpteu	vm.c	/^clearpteu(pde_t *pgdir, char *uva)$/
+cli	x86.h	/^cli(void)$/
+cmd	sh.c	16
+cmd	sh.c	28
+cmd	sh.c	49
+cmos_read	lapic.c	/^cmos_read(uint reg)$/
+cmostime	lapic.c	/^cmostime(struct rtcdate *r)$/
+commit	log.c	/^commit()$/
+committing	log.c	44
+concreate	usertests.c	/^concreate(void)$/
+cons	console.c	25
+consoleinit	console.c	/^consoleinit(void)$/
+consoleintr	console.c	/^consoleintr(int (*getc)(void))$/
+consoleread	console.c	/^consoleread(struct inode *ip, char *dst, int n)$/
+consolewrite	console.c	/^consolewrite(struct inode *ip, char *buf, int n)$/
+consputc	console.c	/^consputc(int c)$/
+context	proc.h	27
+context	proc.h	46
+copyout	vm.c	/^copyout(pde_t *pgdir, uint va, void *p, uint len)$/
+copyuvm	vm.c	/^copyuvm(pde_t *pgdir, uint sz)$/
+cprintf	console.c	/^cprintf(char *fmt, ...)$/
+cps	proc.c	/^int cps(){$/
+cpu	proc.h	2
+cpu	spinlock.h	7
+cpuid	proc.c	/^cpuid() {$/
+cpus	mp.c	14
+cr3	mmu.h	118
+create	sysfile.c	/^create(char *path, short type, short major, short /
+createTime	proc.h	53
+createdelete	usertests.c	/^createdelete(void)$/
+createtest	usertests.c	/^createtest(void)$/
+crt	console.c	129
+cs	mmu.h	131
+cs	mmu.h	150
+cs	x86.h	175
+ctlmap	kbd.h	95
+cwd	proc.h	50
+data	buf.h	10
+data	ioapic.c	31
+data	pipe.c	15
+day	date.h	5
+db	mmu.h	37
+deallocuvm	vm.c	/^deallocuvm(pde_t *pgdir, uint oldsz, uint newsz)$/
+dev	buf.h	3
+dev	file.h	14
+dev	log.c	45
+dev	stat.h	7
+devsw	file.c	13
+devsw	file.h	30
+dinode	fs.h	29
+dirent	fs.h	53
+dirfile	usertests.c	/^dirfile(void)$/
+dirlink	fs.c	/^dirlink(struct inode *dp, char *name, uint inum)$/
+dirlookup	fs.c	/^dirlookup(struct inode *dp, char *name, uint *poff/
+dirtest	usertests.c	/^void dirtest(void)$/
+disksize	memide.c	18
+dpl	mmu.h	32
+dpl	mmu.h	155
+ds	mmu.h	135
+ds	x86.h	168
+dum	proc.h	59
+e	console.c	186
+eargv	sh.c	23
+eax	mmu.h	121
+eax	x86.h	159
+ebp	mmu.h	126
+ebp	proc.h	31
+ebp	x86.h	154
+ebx	mmu.h	124
+ebx	proc.h	30
+ebx	x86.h	156
+echoargv	usertests.c	13
+ecx	mmu.h	122
+ecx	x86.h	158
+edi	mmu.h	128
+edi	proc.h	28
+edi	x86.h	152
+edx	mmu.h	123
+edx	x86.h	157
+efile	sh.c	30
+eflags	mmu.h	120
+eflags	x86.h	177
+ehsize	elf.h	16
+eip	mmu.h	119
+eip	proc.h	32
+eip	x86.h	174
+elf	elf.h	8
+elfhdr	elf.h	6
+end_op	log.c	/^end_op(void)$/
+entry	elf.h	12
+entry	entry.S	/^entry:$/
+entry	mp.h	22
+entrypgdir	main.c	60
+entrypgdir	main.c	103
+err	x86.h	173
+es	mmu.h	129
+es	x86.h	166
+esi	mmu.h	127
+esi	proc.h	29
+esi	x86.h	153
+esp	mmu.h	125
+esp	x86.h	180
+esp0	mmu.h	109
+esp1	mmu.h	112
+esp2	mmu.h	115
+exec	exec.c	/^exec(char *path, char **argv)$/
+execcmd	sh.c	20
+execcmd	sh.c	/^execcmd(void)$/
+exectest	usertests.c	/^exectest(void)$/
+exit	initcode.S	/^exit:$/
+exit	proc.c	/^exit(void)$/
+exit	user.h	/^int exit(void) __attribute__((noreturn));$/
+exitiputtest	usertests.c	/^exitiputtest(void)$/
+exitwait	usertests.c	/^exitwait(void)$/
+fd	sh.c	32
+fdalloc	sysfile.c	/^fdalloc(struct file *f)$/
+feature	mp.h	36
+fetchint	syscall.c	/^fetchint(uint addr, int *ip)$/
+fetchstr	syscall.c	/^fetchstr(uint addr, char **pp)$/
+file	file.c	16
+file	file.h	1
+file	sh.c	29
+filealloc	file.c	/^filealloc(void)$/
+fileclose	file.c	/^fileclose(struct file *f)$/
+filedup	file.c	/^filedup(struct file *f)$/
+fileinit	file.c	/^fileinit(void)$/
+fileread	file.c	/^fileread(struct file *f, char *addr, int n)$/
+filestat	file.c	/^filestat(struct file *f, struct stat *st)$/
+filesz	elf.h	30
+filewrite	file.c	/^filewrite(struct file *f, char *addr, int n)$/
+fill_rtcdate	lapic.c	/^fill_rtcdate(struct rtcdate *r)$/
+flags	buf.h	2
+flags	elf.h	15
+flags	elf.h	32
+flags	mp.h	33
+flags	mp.h	44
+fmtname	ls.c	/^fmtname(char *path)$/
+fork	proc.c	/^fork(void)$/
+fork1	sh.c	/^fork1(void)$/
+forkret	proc.c	/^forkret(void)$/
+forktest	forktest.c	/^forktest(void)$/
+forktest	usertests.c	/^forktest(void)$/
+fourfiles	usertests.c	/^fourfiles(void)$/
+fourteen	usertests.c	/^fourteen(void)$/
+free	umalloc.c	/^free(void *ap)$/
+freeblock	mkfs.c	33
+freeinode	mkfs.c	32
+freelist	kalloc.c	23
+freep	umalloc.c	22
+freerange	kalloc.c	/^freerange(void *vstart, void *vend)$/
+freevm	vm.c	/^freevm(pde_t *pgdir)$/
+fs	mmu.h	137
+fs	x86.h	164
+fsfd	mkfs.c	29
+fsfull	usertests.c	/^fsfull()$/
+ftable	file.c	17
+g	mmu.h	38
+gatedesc	mmu.h	148
+gdt	bootasm.S	/^gdt:$/
+gdt	entryother.S	/^gdt:$/
+gdt	proc.h	6
+gdtdesc	bootasm.S	/^gdtdesc:$/
+gdtdesc	entryother.S	/^gdtdesc:$/
+getcallerpcs	spinlock.c	/^getcallerpcs(void *v, uint pcs[])$/
+getcmd	sh.c	/^getcmd(char *buf, int nbuf)$/
+gets	ulib.c	/^gets(char *buf, int max)$/
+gettoken	sh.c	/^gettoken(char **ps, char *es, char **q, char **eq)/
+grep	grep.c	/^grep(char *pattern, int fd)$/
+growproc	proc.c	/^growproc(int n)$/
+gs	mmu.h	139
+gs	x86.h	162
+havedisk1	ide.c	34
+head	bio.c	35
+header	umalloc.c	11
+holding	spinlock.c	/^holding(struct spinlock *lock)$/
+holdingsleep	sleeplock.c	/^holdingsleep(struct sleeplock *lk)$/
+hour	date.h	4
+ialloc	fs.c	/^ialloc(uint dev, short type)$/
+ialloc	mkfs.c	/^ialloc(ushort type)$/
+iappend	mkfs.c	/^iappend(uint inum, void *xp, int n)$/
+icache	fs.c	169
+ideinit	ide.c	/^ideinit(void)$/
+ideinit	memide.c	/^ideinit(void)$/
+ideintr	ide.c	/^ideintr(void)$/
+ideintr	memide.c	/^ideintr(void)$/
+idelock	ide.c	31
+idequeue	ide.c	32
+iderw	ide.c	/^iderw(struct buf *b)$/
+iderw	memide.c	/^iderw(struct buf *b)$/
+idestart	ide.c	/^idestart(struct buf *b)$/
+idewait	ide.c	/^idewait(int checkerr)$/
+idt	trap.c	12
+idtinit	trap.c	/^idtinit(void)$/
+idup	fs.c	/^idup(struct inode *ip)$/
+iget	fs.c	/^iget(uint dev, uint inum)$/
+iinit	fs.c	/^iinit(int dev)$/
+ilock	fs.c	/^ilock(struct inode *ip)$/
+imcrp	mp.h	10
+inb	x86.h	/^inb(ushort port)$/
+init	initcode.S	/^init:$/
+initlock	spinlock.c	/^initlock(struct spinlock *lk, char *name)$/
+initlog	log.c	/^initlog(int dev)$/
+initproc	proc.c	17
+initsleeplock	sleeplock.c	/^initsleeplock(struct sleeplock *lk, char *name)$/
+inituvm	vm.c	/^inituvm(pde_t *pgdir, char *init, uint sz)$/
+ino	stat.h	8
+inode	file.h	13
+inode	fs.c	168
+inodestart	fs.h	20
+input	console.c	187
+insl	x86.h	/^insl(int port, void *addr, int cnt)$/
+install_trans	log.c	/^install_trans(void)$/
+intena	proc.h	9
+inum	file.h	15
+inum	fs.h	54
+inum	usertests.c	771
+ioapic	ioapic.c	25
+ioapic	ioapic.c	28
+ioapicenable	ioapic.c	/^ioapicenable(int irq, int cpunum)$/
+ioapicid	mp.c	16
+ioapicinit	ioapic.c	/^ioapicinit(void)$/
+ioapicread	ioapic.c	/^ioapicread(int reg)$/
+ioapicwrite	ioapic.c	/^ioapicwrite(int reg, uint data)$/
+iomb	mmu.h	144
+ip	file.h	7
+iput	fs.c	/^iput(struct inode *ip)$/
+iputtest	usertests.c	/^iputtest(void)$/
+iref	usertests.c	/^iref(void)$/
+isdirempty	sysfile.c	/^isdirempty(struct inode *dp)$/
+itrunc	fs.c	/^itrunc(struct inode *ip)$/
+iunlock	fs.c	/^iunlock(struct inode *ip)$/
+iunlockput	fs.c	/^iunlockput(struct inode *ip)$/
+iupdate	fs.c	/^iupdate(struct inode *ip)$/
+kalloc	kalloc.c	/^kalloc(void)$/
+kbdgetc	kbd.c	/^kbdgetc(void)$/
+kbdintr	kbd.c	/^kbdintr(void)$/
+kfree	kalloc.c	/^kfree(char *v)$/
+kill	proc.c	/^kill(int pid)$/
+killed	proc.h	48
+kinit1	kalloc.c	/^kinit1(void *vstart, void *vend)$/
+kinit2	kalloc.c	/^kinit2(void *vstart, void *vend)$/
+kmap	vm.c	105
+kmap	vm.c	110
+kmem	kalloc.c	24
+kpgdir	vm.c	11
+kstack	proc.h	41
+kvmalloc	vm.c	/^kvmalloc(void)$/
+lapic	lapic.c	44
+lapicaddr	mp.h	23
+lapiceoi	lapic.c	/^lapiceoi(void)$/
+lapicid	lapic.c	/^lapicid(void)$/
+lapicinit	lapic.c	/^lapicinit(void)$/
+lapicstartap	lapic.c	/^lapicstartap(uchar apicid, uint addr)$/
+lapicw	lapic.c	/^lapicw(int index, int value)$/
+lcr3	x86.h	/^lcr3(uint val)$/
+ldt	mmu.h	141
+left	sh.c	37
+left	sh.c	43
+length	mp.h	6
+length	mp.h	16
+lgdt	x86.h	/^lgdt(struct segdesc *p, int size)$/
+lh	log.c	46
+lidt	x86.h	/^lidt(struct gatedesc *p, int size)$/
+lim_15_0	mmu.h	27
+lim_19_16	mmu.h	34
+link	mmu.h	108
+linktest	usertests.c	/^linktest(void)$/
+linkunlink	usertests.c	/^linkunlink()$/
+listcmd	sh.c	41
+listcmd	sh.c	/^listcmd(struct cmd *left, struct cmd *right)$/
+lk	sleeplock.h	4
+loadgs	x86.h	/^loadgs(ushort v)$/
+loaduvm	vm.c	/^loaduvm(pde_t *pgdir, char *addr, struct inode *ip/
+lock	bio.c	30
+lock	buf.h	5
+lock	console.c	23
+lock	file.c	15
+lock	file.h	17
+lock	fs.c	167
+lock	kalloc.c	21
+lock	log.c	40
+lock	pipe.c	14
+lock	proc.c	13
+locked	sleeplock.h	3
+locked	spinlock.h	3
+locking	console.c	24
+log	log.c	39
+log	log.c	48
+log_write	log.c	/^log_write(struct buf *b)$/
+logheader	log.c	34
+logstart	fs.h	19
+ls	ls.c	/^ls(char *path)$/
+ltr	x86.h	/^ltr(ushort sel)$/
+machine	elf.h	10
+magic	elf.h	7
+major	file.h	21
+major	fs.h	31
+malloc	umalloc.c	/^malloc(uint nbytes)$/
+mappages	vm.c	/^mappages(pde_t *pgdir, void *va, uint size, uint p/
+match	grep.c	/^match(char *re, char *text)$/
+matchhere	grep.c	/^int matchhere(char *re, char *text)$/
+matchstar	grep.c	/^int matchstar(int c, char *re, char *text)$/
+mem	usertests.c	/^mem(void)$/
+memcmp	string.c	/^memcmp(const void *v1, const void *v2, uint n)$/
+memcpy	string.c	/^memcpy(void *dst, const void *src, uint n)$/
+memdisk	memide.c	19
+memmove	string.c	/^memmove(void *dst, const void *src, uint n)$/
+memmove	ulib.c	/^memmove(void *vdst, const void *vsrc, int n)$/
+memset	string.c	/^memset(void *dst, int c, uint n)$/
+memset	ulib.c	/^memset(void *dst, int c, uint n)$/
+memsz	elf.h	31
+microdelay	lapic.c	/^microdelay(int us)$/
+min	fs.c	/^#define min(a, b) ((a) < (b) ? (a) : (b))$/
+min	mkfs.c	/^#define min(a, b) ((a) < (b) ? (a) : (b))$/
+minor	file.h	22
+minor	fs.h	32
+minute	date.h	3
+mode	sh.c	31
+month	date.h	6
+morecore	umalloc.c	/^morecore(uint nu)$/
+mp	mp.h	3
+mpconf	mp.h	14
+mpconfig	mp.c	/^mpconfig(struct mp **pmp)$/
+mpenter	main.c	/^mpenter(void)$/
+mpinit	mp.c	/^mpinit(void)$/
+mpioapic	mp.h	40
+mpmain	main.c	/^static void mpmain(void)  __attribute__((noreturn)/
+mpmain	main.c	/^mpmain(void)$/
+mpproc	mp.h	29
+mpsearch	mp.c	/^mpsearch(void)$/
+mpsearch1	mp.c	/^mpsearch1(uint a, int len)$/
+multiboot_header	entry.S	/^multiboot_header:$/
+mycpu	proc.c	/^mycpu(void)$/
+myproc	proc.c	/^myproc(void) {$/
+n	log.c	35
+name	fs.h	55
+name	proc.h	51
+name	sleeplock.h	7
+name	spinlock.h	6
+name	usertests.c	12
+name	usertests.c	772
+namecmp	fs.c	/^namecmp(const char *s, const char *t)$/
+namei	fs.c	/^namei(char *path)$/
+nameiparent	fs.c	/^nameiparent(char *path, char *name)$/
+namex	fs.c	/^namex(char *path, int nameiparent, char *name)$/
+nbitmap	mkfs.c	23
+nblocks	fs.h	16
+nblocks	mkfs.c	27
+ncli	proc.h	8
+ncpu	mp.c	15
+next	buf.h	8
+next	kalloc.c	17
+nextpid	proc.c	19
+ninodeblocks	mkfs.c	24
+ninodes	fs.h	17
+nlink	file.h	23
+nlink	fs.h	33
+nlink	stat.h	9
+nlog	fs.h	18
+nlog	mkfs.c	25
+nmeta	mkfs.c	26
+normalmap	kbd.h	51
+nread	pipe.c	16
+nulterminate	sh.c	/^nulterminate(struct cmd *cmd)$/
+nwrite	pipe.c	17
+oemlength	mp.h	21
+oemtable	mp.h	20
+oesp	x86.h	155
+off	elf.h	27
+off	file.h	8
+off_15_0	mmu.h	149
+off_31_16	mmu.h	157
+ofile	proc.h	49
+openiputtest	usertests.c	/^openiputtest(void)$/
+opentest	usertests.c	/^opentest(void)$/
+outb	x86.h	/^outb(ushort port, uchar data)$/
+outsl	x86.h	/^outsl(int port, const void *addr, int cnt)$/
+outstanding	log.c	43
+outw	x86.h	/^outw(ushort port, ushort data)$/
+p	mmu.h	33
+p	mmu.h	156
+pad	ioapic.c	30
+padding1	mmu.h	111
+padding1	x86.h	163
+padding10	mmu.h	142
+padding2	mmu.h	114
+padding2	x86.h	165
+padding3	mmu.h	117
+padding3	x86.h	167
+padding4	mmu.h	130
+padding4	x86.h	169
+padding5	mmu.h	132
+padding5	x86.h	176
+padding6	mmu.h	134
+padding6	x86.h	182
+padding7	mmu.h	136
+padding8	mmu.h	138
+padding9	mmu.h	140
+paddr	elf.h	29
+panic	console.c	/^panic(char *s)$/
+panic	defs.h	/^void            panic(char*) __attribute__((noretu/
+panic	sh.c	/^panic(char *s)$/
+panicked	console.c	20
+parent	proc.h	44
+parseblock	sh.c	/^parseblock(char **ps, char *es)$/
+parsecmd	sh.c	/^parsecmd(char *s)$/
+parseexec	sh.c	/^parseexec(char **ps, char *es)$/
+parseline	sh.c	/^parseline(char **ps, char *es)$/
+parsepipe	sh.c	/^parsepipe(char **ps, char *es)$/
+parseredirs	sh.c	/^parseredirs(struct cmd *cmd, char **ps, char *es)$/
+pcs	spinlock.h	8
+pde_t	types.h	4
+peek	sh.c	/^peek(char **ps, char *es, char *toks)$/
+perm	vm.c	109
+pgdir	proc.h	40
+phentsize	elf.h	17
+phnum	elf.h	18
+phoff	elf.h	13
+phys_end	vm.c	108
+phys_start	vm.c	107
+physaddr	mp.h	5
+picinit	picirq.c	/^picinit(void)$/
+pid	proc.h	43
+pid	sleeplock.h	8
+pinit	proc.c	/^pinit(void)$/
+pipe	file.h	6
+pipe	pipe.c	13
+pipe1	usertests.c	/^pipe1(void)$/
+pipealloc	pipe.c	/^pipealloc(struct file **f0, struct file **f1)$/
+pipeclose	pipe.c	/^pipeclose(struct pipe *p, int writable)$/
+pipecmd	sh.c	35
+pipecmd	sh.c	/^pipecmd(struct cmd *left, struct cmd *right)$/
+piperead	pipe.c	/^piperead(struct pipe *p, char *addr, int n)$/
+pipewrite	pipe.c	/^pipewrite(struct pipe *p, char *addr, int n)$/
+popcli	spinlock.c	/^popcli(void)$/
+preempt	usertests.c	/^preempt(void)$/
+prev	buf.h	7
+printf	forktest.c	/^printf(int fd, const char *s, ...)$/
+printf	printf.c	/^printf(int fd, const char *fmt, ...)$/
+printint	console.c	/^printint(int xx, int base, int sign)$/
+printint	printf.c	/^printint(int fd, int xx, int base, int sgn)$/
+priority	proc.h	57
+proc	proc.c	14
+proc	proc.h	10
+proc	proc.h	38
+procdump	proc.c	/^procdump(void)$/
+procstate	proc.h	35
+product	mp.h	19
+proghdr	elf.h	25
+ptable	proc.c	15
+pte_t	mmu.h	104
+ptr	umalloc.c	13
+pushcli	spinlock.c	/^pushcli(void)$/
+putc	printf.c	/^putc(int fd, char c)$/
+qnext	buf.h	9
+r	console.c	184
+rand	usertests.c	/^rand()$/
+randstate	usertests.c	1740
+rcr2	x86.h	/^rcr2(void)$/
+read	file.h	/^  int (*read)(struct inode*, char*, int);$/
+read_head	log.c	/^read_head(void)$/
+readable	file.h	4
+readeflags	x86.h	/^readeflags(void)$/
+readi	fs.c	/^readi(struct inode *ip, char *dst, uint off, uint /
+readopen	pipe.c	18
+readsb	fs.c	/^readsb(int dev, struct superblock *sb)$/
+readsect	bootmain.c	/^readsect(void *dst, uint offset)$/
+readseg	bootmain.c	/^readseg(uchar* pa, uint count, uint offset)$/
+readyTime	proc.h	55
+recover_from_log	log.c	/^recover_from_log(void)$/
+redircmd	sh.c	26
+redircmd	sh.c	/^redircmd(struct cmd *subcmd, char *file, char *efi/
+ref	file.h	3
+ref	file.h	16
+refcnt	buf.h	6
+reg	ioapic.c	29
+release	spinlock.c	/^release(struct spinlock *lk)$/
+releasesleep	sleeplock.c	/^releasesleep(struct sleeplock *lk)$/
+reserved	mp.h	11
+reserved	mp.h	26
+reserved	mp.h	37
+right	sh.c	38
+right	sh.c	44
+rinode	mkfs.c	/^rinode(uint inum, struct dinode *ip)$/
+rmdot	usertests.c	/^rmdot(void)$/
+rsect	mkfs.c	/^rsect(uint sec, void *buf)$/
+rsv1	mmu.h	36
+rsv1	mmu.h	152
+rtcdate	date.h	1
+run	kalloc.c	16
+runTime	proc.h	56
+runcmd	sh.c	/^runcmd(struct cmd *cmd)$/
+s	mmu.h	31
+s	mmu.h	154
+s	umalloc.c	15
+safestrcpy	string.c	/^safestrcpy(char *s, const char *t, int n)$/
+sb	fs.c	28
+sb	mkfs.c	30
+sbrktest	usertests.c	/^sbrktest(void)$/
+sched	proc.c	/^sched(void)$/
+scheduler	defs.h	/^void            scheduler(void) __attribute__((nor/
+scheduler	proc.c	/^scheduler(void)$/
+scheduler	proc.h	4
+second	date.h	2
+segdesc	mmu.h	26
+seginit	vm.c	/^seginit(void)$/
+seta20.1	bootasm.S	/^seta20.1:$/
+seta20.2	bootasm.S	/^seta20.2:$/
+setupkvm	vm.c	/^setupkvm(void)$/
+sharedfd	usertests.c	/^sharedfd(void)$/
+shentsize	elf.h	19
+shiftcode	kbd.h	34
+shiftmap	kbd.h	73
+shnum	elf.h	20
+shoff	elf.h	14
+shstrndx	elf.h	21
+signature	mp.h	4
+signature	mp.h	15
+signature	mp.h	35
+size	file.h	24
+size	fs.h	15
+size	fs.h	34
+size	log.c	42
+size	stat.h	10
+size	umalloc.c	14
+skipelem	fs.c	/^skipelem(char *path, char *name)$/
+sleep	proc.c	/^sleep(void *chan, struct spinlock *lk)$/
+sleepTime	proc.h	54
+sleeplock	sleeplock.h	2
+specrev	mp.h	7
+spin	bootasm.S	/^spin:$/
+spin	entryother.S	/^spin:$/
+spinlock	spinlock.h	2
+ss	mmu.h	133
+ss	x86.h	181
+ss0	mmu.h	110
+ss1	mmu.h	113
+ss2	mmu.h	116
+start	bootasm.S	/^start:$/
+start	entryother.S	/^start:$/
+start	initcode.S	/^start:$/
+start	log.c	41
+start32	bootasm.S	/^start32:$/
+start32	entryother.S	/^start32:$/
+started	proc.h	7
+startothers	main.c	/^startothers(void)$/
+stat	mkfs.c	8
+stat	stat.h	5
+stat	ulib.c	/^stat(const char *n, struct stat *st)$/
+state	proc.h	42
+stati	fs.c	/^stati(struct inode *ip, struct stat *st)$/
+static_assert	mkfs.c	/^#define static_assert(a, b) do { switch (0) case 0/
+stdout	usertests.c	14
+sti	x86.h	/^sti(void)$/
+stosb	x86.h	/^stosb(void *addr, int data, int cnt)$/
+stosl	x86.h	/^stosl(void *addr, int data, int cnt)$/
+strchr	ulib.c	/^strchr(const char *s, char c)$/
+strcmp	ulib.c	/^strcmp(const char *p, const char *q)$/
+strcpy	ulib.c	/^strcpy(char *s, const char *t)$/
+strlen	string.c	/^strlen(const char *s)$/
+strlen	ulib.c	/^strlen(const char *s)$/
+strncmp	string.c	/^strncmp(const char *p, const char *q, uint n)$/
+strncpy	string.c	/^strncpy(char *s, const char *t, int n)$/
+subdir	usertests.c	/^subdir(void)$/
+sum	mp.c	/^sum(uchar *addr, int len)$/
+superblock	fs.h	14
+switchkvm	vm.c	/^switchkvm(void)$/
+switchuvm	vm.c	/^switchuvm(struct proc *p)$/
+swtch	swtch.S	/^swtch:$/
+symbols	sh.c	263
+sys_chdir	sysfile.c	/^sys_chdir(void)$/
+sys_chpr	sysproc.c	/^int sys_chpr(void){$/
+sys_close	sysfile.c	/^sys_close(void)$/
+sys_cps	sysproc.c	/^int sys_cps(void){$/
+sys_dup	sysfile.c	/^sys_dup(void)$/
+sys_exec	sysfile.c	/^sys_exec(void)$/
+sys_exit	sysproc.c	/^sys_exit(void)$/
+sys_fork	sysproc.c	/^sys_fork(void)$/
+sys_fstat	sysfile.c	/^sys_fstat(void)$/
+sys_getpid	sysproc.c	/^sys_getpid(void)$/
+sys_kill	sysproc.c	/^sys_kill(void)$/
+sys_link	sysfile.c	/^sys_link(void)$/
+sys_lseek	sysfile.c	/^int sys_lseek(void)$/
+sys_mkdir	sysfile.c	/^sys_mkdir(void)$/
+sys_mknod	sysfile.c	/^sys_mknod(void)$/
+sys_open	sysfile.c	/^sys_open(void)$/
+sys_pipe	sysfile.c	/^sys_pipe(void)$/
+sys_read	sysfile.c	/^sys_read(void)$/
+sys_sbrk	sysproc.c	/^sys_sbrk(void)$/
+sys_sleep	sysproc.c	/^sys_sleep(void)$/
+sys_unlink	sysfile.c	/^sys_unlink(void)$/
+sys_uptime	sysproc.c	/^sys_uptime(void)$/
+sys_wait	sysproc.c	/^sys_wait(void)$/
+sys_write	sysfile.c	/^sys_write(void)$/
+syscall	syscall.c	/^syscall(void)$/
+sz	proc.h	39
+t	mmu.h	143
+taskstate	mmu.h	107
+tf	proc.h	45
+tickCounter	proc.h	58
+ticks	trap.c	15
+tickslock	trap.c	14
+togglecode	kbd.h	44
+trap	trap.c	/^trap(struct trapframe *tf)$/
+trapframe	x86.h	150
+trapno	x86.h	170
+trapret	trapasm.S	/^trapret:$/
+ts	proc.h	5
+tvinit	trap.c	/^tvinit(void)$/
+type	elf.h	9
+type	elf.h	26
+type	file.h	2
+type	file.h	20
+type	fs.h	30
+type	mmu.h	30
+type	mmu.h	153
+type	mp.h	9
+type	mp.h	30
+type	mp.h	41
+type	sh.c	17
+type	sh.c	21
+type	sh.c	27
+type	sh.c	36
+type	sh.c	42
+type	sh.c	48
+type	stat.h	6
+uart	uart.c	17
+uartgetc	uart.c	/^uartgetc(void)$/
+uartinit	uart.c	/^uartinit(void)$/
+uartintr	uart.c	/^uartintr(void)$/
+uartputc	uart.c	/^uartputc(int c)$/
+uchar	types.h	3
+uint	types.h	1
+uio	usertests.c	/^uio()$/
+uninit	usertests.c	1593
+unlinkread	usertests.c	/^unlinkread(void)$/
+use_lock	kalloc.c	22
+userinit	proc.c	/^userinit(void)$/
+ushort	types.h	2
+uva2ka	vm.c	/^uva2ka(pde_t *pgdir, char *uva)$/
+vaddr	elf.h	28
+valid	file.h	18
+validateint	usertests.c	/^validateint(int *p)$/
+validatetest	usertests.c	/^validatetest(void)$/
+vector0	vectors.S	/^vector0:$/
+vector1	vectors.S	/^vector1:$/
+vector10	vectors.S	/^vector10:$/
+vector100	vectors.S	/^vector100:$/
+vector101	vectors.S	/^vector101:$/
+vector102	vectors.S	/^vector102:$/
+vector103	vectors.S	/^vector103:$/
+vector104	vectors.S	/^vector104:$/
+vector105	vectors.S	/^vector105:$/
+vector106	vectors.S	/^vector106:$/
+vector107	vectors.S	/^vector107:$/
+vector108	vectors.S	/^vector108:$/
+vector109	vectors.S	/^vector109:$/
+vector11	vectors.S	/^vector11:$/
+vector110	vectors.S	/^vector110:$/
+vector111	vectors.S	/^vector111:$/
+vector112	vectors.S	/^vector112:$/
+vector113	vectors.S	/^vector113:$/
+vector114	vectors.S	/^vector114:$/
+vector115	vectors.S	/^vector115:$/
+vector116	vectors.S	/^vector116:$/
+vector117	vectors.S	/^vector117:$/
+vector118	vectors.S	/^vector118:$/
+vector119	vectors.S	/^vector119:$/
+vector12	vectors.S	/^vector12:$/
+vector120	vectors.S	/^vector120:$/
+vector121	vectors.S	/^vector121:$/
+vector122	vectors.S	/^vector122:$/
+vector123	vectors.S	/^vector123:$/
+vector124	vectors.S	/^vector124:$/
+vector125	vectors.S	/^vector125:$/
+vector126	vectors.S	/^vector126:$/
+vector127	vectors.S	/^vector127:$/
+vector128	vectors.S	/^vector128:$/
+vector129	vectors.S	/^vector129:$/
+vector13	vectors.S	/^vector13:$/
+vector130	vectors.S	/^vector130:$/
+vector131	vectors.S	/^vector131:$/
+vector132	vectors.S	/^vector132:$/
+vector133	vectors.S	/^vector133:$/
+vector134	vectors.S	/^vector134:$/
+vector135	vectors.S	/^vector135:$/
+vector136	vectors.S	/^vector136:$/
+vector137	vectors.S	/^vector137:$/
+vector138	vectors.S	/^vector138:$/
+vector139	vectors.S	/^vector139:$/
+vector14	vectors.S	/^vector14:$/
+vector140	vectors.S	/^vector140:$/
+vector141	vectors.S	/^vector141:$/
+vector142	vectors.S	/^vector142:$/
+vector143	vectors.S	/^vector143:$/
+vector144	vectors.S	/^vector144:$/
+vector145	vectors.S	/^vector145:$/
+vector146	vectors.S	/^vector146:$/
+vector147	vectors.S	/^vector147:$/
+vector148	vectors.S	/^vector148:$/
+vector149	vectors.S	/^vector149:$/
+vector15	vectors.S	/^vector15:$/
+vector150	vectors.S	/^vector150:$/
+vector151	vectors.S	/^vector151:$/
+vector152	vectors.S	/^vector152:$/
+vector153	vectors.S	/^vector153:$/
+vector154	vectors.S	/^vector154:$/
+vector155	vectors.S	/^vector155:$/
+vector156	vectors.S	/^vector156:$/
+vector157	vectors.S	/^vector157:$/
+vector158	vectors.S	/^vector158:$/
+vector159	vectors.S	/^vector159:$/
+vector16	vectors.S	/^vector16:$/
+vector160	vectors.S	/^vector160:$/
+vector161	vectors.S	/^vector161:$/
+vector162	vectors.S	/^vector162:$/
+vector163	vectors.S	/^vector163:$/
+vector164	vectors.S	/^vector164:$/
+vector165	vectors.S	/^vector165:$/
+vector166	vectors.S	/^vector166:$/
+vector167	vectors.S	/^vector167:$/
+vector168	vectors.S	/^vector168:$/
+vector169	vectors.S	/^vector169:$/
+vector17	vectors.S	/^vector17:$/
+vector170	vectors.S	/^vector170:$/
+vector171	vectors.S	/^vector171:$/
+vector172	vectors.S	/^vector172:$/
+vector173	vectors.S	/^vector173:$/
+vector174	vectors.S	/^vector174:$/
+vector175	vectors.S	/^vector175:$/
+vector176	vectors.S	/^vector176:$/
+vector177	vectors.S	/^vector177:$/
+vector178	vectors.S	/^vector178:$/
+vector179	vectors.S	/^vector179:$/
+vector18	vectors.S	/^vector18:$/
+vector180	vectors.S	/^vector180:$/
+vector181	vectors.S	/^vector181:$/
+vector182	vectors.S	/^vector182:$/
+vector183	vectors.S	/^vector183:$/
+vector184	vectors.S	/^vector184:$/
+vector185	vectors.S	/^vector185:$/
+vector186	vectors.S	/^vector186:$/
+vector187	vectors.S	/^vector187:$/
+vector188	vectors.S	/^vector188:$/
+vector189	vectors.S	/^vector189:$/
+vector19	vectors.S	/^vector19:$/
+vector190	vectors.S	/^vector190:$/
+vector191	vectors.S	/^vector191:$/
+vector192	vectors.S	/^vector192:$/
+vector193	vectors.S	/^vector193:$/
+vector194	vectors.S	/^vector194:$/
+vector195	vectors.S	/^vector195:$/
+vector196	vectors.S	/^vector196:$/
+vector197	vectors.S	/^vector197:$/
+vector198	vectors.S	/^vector198:$/
+vector199	vectors.S	/^vector199:$/
+vector2	vectors.S	/^vector2:$/
+vector20	vectors.S	/^vector20:$/
+vector200	vectors.S	/^vector200:$/
+vector201	vectors.S	/^vector201:$/
+vector202	vectors.S	/^vector202:$/
+vector203	vectors.S	/^vector203:$/
+vector204	vectors.S	/^vector204:$/
+vector205	vectors.S	/^vector205:$/
+vector206	vectors.S	/^vector206:$/
+vector207	vectors.S	/^vector207:$/
+vector208	vectors.S	/^vector208:$/
+vector209	vectors.S	/^vector209:$/
+vector21	vectors.S	/^vector21:$/
+vector210	vectors.S	/^vector210:$/
+vector211	vectors.S	/^vector211:$/
+vector212	vectors.S	/^vector212:$/
+vector213	vectors.S	/^vector213:$/
+vector214	vectors.S	/^vector214:$/
+vector215	vectors.S	/^vector215:$/
+vector216	vectors.S	/^vector216:$/
+vector217	vectors.S	/^vector217:$/
+vector218	vectors.S	/^vector218:$/
+vector219	vectors.S	/^vector219:$/
+vector22	vectors.S	/^vector22:$/
+vector220	vectors.S	/^vector220:$/
+vector221	vectors.S	/^vector221:$/
+vector222	vectors.S	/^vector222:$/
+vector223	vectors.S	/^vector223:$/
+vector224	vectors.S	/^vector224:$/
+vector225	vectors.S	/^vector225:$/
+vector226	vectors.S	/^vector226:$/
+vector227	vectors.S	/^vector227:$/
+vector228	vectors.S	/^vector228:$/
+vector229	vectors.S	/^vector229:$/
+vector23	vectors.S	/^vector23:$/
+vector230	vectors.S	/^vector230:$/
+vector231	vectors.S	/^vector231:$/
+vector232	vectors.S	/^vector232:$/
+vector233	vectors.S	/^vector233:$/
+vector234	vectors.S	/^vector234:$/
+vector235	vectors.S	/^vector235:$/
+vector236	vectors.S	/^vector236:$/
+vector237	vectors.S	/^vector237:$/
+vector238	vectors.S	/^vector238:$/
+vector239	vectors.S	/^vector239:$/
+vector24	vectors.S	/^vector24:$/
+vector240	vectors.S	/^vector240:$/
+vector241	vectors.S	/^vector241:$/
+vector242	vectors.S	/^vector242:$/
+vector243	vectors.S	/^vector243:$/
+vector244	vectors.S	/^vector244:$/
+vector245	vectors.S	/^vector245:$/
+vector246	vectors.S	/^vector246:$/
+vector247	vectors.S	/^vector247:$/
+vector248	vectors.S	/^vector248:$/
+vector249	vectors.S	/^vector249:$/
+vector25	vectors.S	/^vector25:$/
+vector250	vectors.S	/^vector250:$/
+vector251	vectors.S	/^vector251:$/
+vector252	vectors.S	/^vector252:$/
+vector253	vectors.S	/^vector253:$/
+vector254	vectors.S	/^vector254:$/
+vector255	vectors.S	/^vector255:$/
+vector26	vectors.S	/^vector26:$/
+vector27	vectors.S	/^vector27:$/
+vector28	vectors.S	/^vector28:$/
+vector29	vectors.S	/^vector29:$/
+vector3	vectors.S	/^vector3:$/
+vector30	vectors.S	/^vector30:$/
+vector31	vectors.S	/^vector31:$/
+vector32	vectors.S	/^vector32:$/
+vector33	vectors.S	/^vector33:$/
+vector34	vectors.S	/^vector34:$/
+vector35	vectors.S	/^vector35:$/
+vector36	vectors.S	/^vector36:$/
+vector37	vectors.S	/^vector37:$/
+vector38	vectors.S	/^vector38:$/
+vector39	vectors.S	/^vector39:$/
+vector4	vectors.S	/^vector4:$/
+vector40	vectors.S	/^vector40:$/
+vector41	vectors.S	/^vector41:$/
+vector42	vectors.S	/^vector42:$/
+vector43	vectors.S	/^vector43:$/
+vector44	vectors.S	/^vector44:$/
+vector45	vectors.S	/^vector45:$/
+vector46	vectors.S	/^vector46:$/
+vector47	vectors.S	/^vector47:$/
+vector48	vectors.S	/^vector48:$/
+vector49	vectors.S	/^vector49:$/
+vector5	vectors.S	/^vector5:$/
+vector50	vectors.S	/^vector50:$/
+vector51	vectors.S	/^vector51:$/
+vector52	vectors.S	/^vector52:$/
+vector53	vectors.S	/^vector53:$/
+vector54	vectors.S	/^vector54:$/
+vector55	vectors.S	/^vector55:$/
+vector56	vectors.S	/^vector56:$/
+vector57	vectors.S	/^vector57:$/
+vector58	vectors.S	/^vector58:$/
+vector59	vectors.S	/^vector59:$/
+vector6	vectors.S	/^vector6:$/
+vector60	vectors.S	/^vector60:$/
+vector61	vectors.S	/^vector61:$/
+vector62	vectors.S	/^vector62:$/
+vector63	vectors.S	/^vector63:$/
+vector64	vectors.S	/^vector64:$/
+vector65	vectors.S	/^vector65:$/
+vector66	vectors.S	/^vector66:$/
+vector67	vectors.S	/^vector67:$/
+vector68	vectors.S	/^vector68:$/
+vector69	vectors.S	/^vector69:$/
+vector7	vectors.S	/^vector7:$/
+vector70	vectors.S	/^vector70:$/
+vector71	vectors.S	/^vector71:$/
+vector72	vectors.S	/^vector72:$/
+vector73	vectors.S	/^vector73:$/
+vector74	vectors.S	/^vector74:$/
+vector75	vectors.S	/^vector75:$/
+vector76	vectors.S	/^vector76:$/
+vector77	vectors.S	/^vector77:$/
+vector78	vectors.S	/^vector78:$/
+vector79	vectors.S	/^vector79:$/
+vector8	vectors.S	/^vector8:$/
+vector80	vectors.S	/^vector80:$/
+vector81	vectors.S	/^vector81:$/
+vector82	vectors.S	/^vector82:$/
+vector83	vectors.S	/^vector83:$/
+vector84	vectors.S	/^vector84:$/
+vector85	vectors.S	/^vector85:$/
+vector86	vectors.S	/^vector86:$/
+vector87	vectors.S	/^vector87:$/
+vector88	vectors.S	/^vector88:$/
+vector89	vectors.S	/^vector89:$/
+vector9	vectors.S	/^vector9:$/
+vector90	vectors.S	/^vector90:$/
+vector91	vectors.S	/^vector91:$/
+vector92	vectors.S	/^vector92:$/
+vector93	vectors.S	/^vector93:$/
+vector94	vectors.S	/^vector94:$/
+vector95	vectors.S	/^vector95:$/
+vector96	vectors.S	/^vector96:$/
+vector97	vectors.S	/^vector97:$/
+vector98	vectors.S	/^vector98:$/
+vector99	vectors.S	/^vector99:$/
+vectors	vectors.S	/^vectors:$/
+version	elf.h	11
+version	mp.h	17
+version	mp.h	32
+version	mp.h	43
+virt	vm.c	106
+w	console.c	185
+wait	proc.c	/^wait(void)$/
+waitdisk	bootmain.c	/^waitdisk(void)$/
+wakeup	proc.c	/^wakeup(void *chan)$/
+wakeup1	proc.c	/^wakeup1(void *chan)$/
+walkpgdir	vm.c	/^walkpgdir(pde_t *pgdir, const void *va, int alloc)/
+wc	wc.c	/^wc(int fd, char *name)$/
+whitespace	sh.c	262
+winode	mkfs.c	/^winode(uint inum, struct dinode *ip)$/
+writable	file.h	5
+write	file.h	/^  int (*write)(struct inode*, char*, int);$/
+write_head	log.c	/^write_head(void)$/
+write_log	log.c	/^write_log(void)$/
+writei	fs.c	/^writei(struct inode *ip, char *src, uint off, uint/
+writeopen	pipe.c	19
+writetest	usertests.c	/^writetest(void)$/
+writetest1	usertests.c	/^writetest1(void)$/
+wsect	mkfs.c	/^wsect(uint sec, void *buf)$/
+x	umalloc.c	16
+xchecksum	mp.h	25
+xchg	x86.h	/^xchg(volatile uint *addr, uint newval)$/
+xint	mkfs.c	/^xint(uint x)$/
+xlength	mp.h	24
+xshort	mkfs.c	/^xshort(ushort x)$/
+year	date.h	7
+yield	proc.c	/^yield(void)$/
+zeroes	mkfs.c	31

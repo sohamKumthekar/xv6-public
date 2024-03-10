@@ -4,33 +4,39 @@
 #include "fcntl.h"
 
 int main(int argc, char *argv[]){
-	int k, n, id;
-	double x = 0, z;
+	int i = 0, n = 1, pid = 0;
+	double m = 7.21, l;
 	
-	if(argc < 2)
-	    n = 1;
-	else
-	    n = atoi( argv[1] );
+	//if no arg is provided initialize n = 1
+	n = (argc < 2) ? 1 : atoi(argv[1]);
 	
-	if(n < 0 || n > 20)
-	    n = 2;
-	x = 0;
-	id = 0;
-	for(k = 0; k < n; k++){
-		id = fork();
-		if(id < 0){
+	//check if 'n' is within (0-20)
+	n = (n < 0 || n > 20) ? 2 : n;
+	  
+	int x = uptime();   
+	while(i < n){
+		pid = fork();
+		if(pid < 0){
 			printf(1, "%d failed in fork\n", getpid());
 		}
-		else if(id  > 0){	//parent
-			printf(1, "parent %d creating child %d\n", getpid(), id);
+		else if(pid == 0){
+			//printf(1, "child %d is created\n", getpid());
+			for(l = 0; l < 8000000000.0; l++)
+			    m = m*m;   //calculation to consume cpu time
+			break;
+		}
+		else{	//parent
+			printf(1, "parent %d is creating child %d\n", getpid(), pid);
 			wait();
 		}
-		else{	//child
-			printf(1, "child %d created\n", getpid());
-			for(z = 0; z < 80000000.0; z += 1)
-			    x = x + 3.14 * 89.64;   //calculation to consume cpu time
-			break;	
-		}
-	}
+		i++;
+		
+	}	
+	int y = uptime();
+	
+	int throughput = n/(y-x);
+	printf(1,"Throughput: %d",throughput);
+	
 	exit();
 }
+

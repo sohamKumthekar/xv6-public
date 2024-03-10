@@ -8,6 +8,10 @@
 #include "spinlock.h"
 
 #define NULL ((void*)0)
+#define DEFAULT_TIME_QUANTUM 10000000
+#define TICR (0x0380/4)
+#define ID (0x0020/4)
+
 
 struct {
   struct spinlock lock;
@@ -327,6 +331,24 @@ wait(void)
 //  - swtch to start running that process
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
+
+
+volatile uint *lapic;  // Initialized in mp.c
+
+//PAGEBREAK!
+//index - write value to 'index' in LAPIC register
+static void
+lapicw(int index, int value)
+{
+  lapic[index] = value;
+  lapic[ID];  // wait for write to finish, by reading
+}
+
+uint calculateTimeQuantun(int priority){
+	int p = priority*10;
+	return (uint)(DEFAULT_TIME_QUANTUM / p);
+}
+
 void
 scheduler(void)
 {
@@ -348,15 +370,22 @@ scheduler(void)
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
 
+	//highP will point to the current runnable process
 	highP = p;
 	//choose one with the highest priority
-	for(p1 = ptable.proc; p1 < &ptable.proc[NPROC]; p1++){
-		if(p1->state != RUNNABLE)
-			continue;
-		if(highP->priority > p1->priority)
+	//i.e. select a runnable process with the lowest priority number.
+	p1 = ptable.proc;
+	while(p1 < &ptable.proc[NPROC]){
+		if(p1->state == RUNNABLE && highP->priority > p1->priority){
 			highP = p1;
+		}
+		p1++;
 	}
 	p = highP;
+	
+	uint timeQuantum = calculateTimeQuantun(p->priority);
+	lapicw(TICR, timeQuantum);
+	
 	switchuvm(p);
 
       c->proc = p;
@@ -558,29 +587,42 @@ int cps(){
 	sti();	//enable interrupts on this processor
 	
 	acquire(&ptable.lock);
-	cprintf("name \t pid \t state \t priority \n");
-	for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-		if(p->state == SLEEPING)
+	
+	cprintf("name \t pid \t state \t    priority \n");
+	cprintf("------------------------------------\n");
+	
+	p = ptable.proc;
+	while(p < &ptable.proc[NPROC]){
+		if(p->state == SLEEPING){
 		  cprintf("%s \t %d \t SLEEPING \t %d \n", p->name, p->pid, p->priority);
-		else if(p->state == RUNNING)
+		  cprintf("------------------------------------\n");
+		}
+		
+		else if(p->state == RUNNING){
 		  cprintf("%s \t %d \t RUNNING \t %d \n", p->name, p->pid, p->priority);
-		else if(p->state == RUNNABLE)
+		  cprintf("------------------------------------\n");
+		}
+		else if(p->state == RUNNABLE){
 		  cprintf("%s \t %d \t RUNNABLE \t %d \n", p->name, p->pid, p->priority);
+		  cprintf("------------------------------------\n");
+		}  
+		p++;
 	}
 	release(&ptable.lock);
-	return 24;
-	
+	return 24;	
 }
 
 int chpr(int pid, int priority){
 	struct proc *p;
 
 	acquire(&ptable.lock);
-	for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+	p = ptable.proc;
+	while(p < &ptable.proc[NPROC]){
 		if(p->pid == pid){
 			p->priority = priority;
 			break;
 		}
+		p++;
 	}
 	release(&ptable.lock);
 
